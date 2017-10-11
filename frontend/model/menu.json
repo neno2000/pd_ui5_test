@@ -1,0 +1,13 @@
+{
+    "Menu": [{
+        "title": "People Data Test Tool",
+        "icon": "sap-icon://list",
+        "targetPage": "CoffeeList",
+        "description": "PD Test Tool"
+    }, {
+        "title": "People Data Migration Tool",
+        "icon": "sap-icon://favorite",
+        "targetPage": "NewFeatures-v122",
+        "description": "PD Migration Tool"
+    }]
+}

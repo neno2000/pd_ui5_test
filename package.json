@@ -1,0 +1,17 @@
+{
+  "name": "pd_auto",
+  "version": "1.0.0",
+  "description": "Automate Testing and migration in PeopleData",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-packager . WorklistApp"
+  },
+  "author": "Ernesto Duran",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^1.7.8",
+    "electron-packager": "^9.1.0",
+    "electron-prebuilt": "^1.4.13"
+  }
+}
