@@ -1,13 +1,13 @@
 {
     "Menu": [{
         "title": "People Data Test Tool",
-        "icon": "sap-icon://list",
+        "icon": "sap-icon://wounds-doc",
         "targetPage": "CoffeeList",
-        "description": "PD Test Tool"
+        "description": "csv based test tool"
     }, {
         "title": "People Data Migration Tool",
-        "icon": "sap-icon://favorite",
+        "icon": "sap-icon://personnel-view",
         "targetPage": "NewFeatures-v122",
-        "description": "PD Migration Tool"
+        "description": "csv based migration tool"
     }]
 }

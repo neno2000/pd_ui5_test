@@ -3,6 +3,7 @@ var app = electron.app;
 var BrowserWindow = electron.BrowserWindow;
 var mainWindow = null;
 
+
 app.on('window-all-closed', function() {
   if (process.platform != 'darwin')
     app.quit();
