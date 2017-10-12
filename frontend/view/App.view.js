@@ -3,7 +3,7 @@ jQuery.sap.require("ui5bp.app.config");
 sap.ui.jsview("ui5bp.view.App", {
 
     getControllerName: function() {
-        return "ui5bp.view.App";
+        return "ui5bp.controller.App";
     },
 
     createContent: function(oController) {
@@ -63,6 +63,7 @@ sap.ui.jsview("ui5bp.view.App", {
         }
         this.app.addDetailPage(sap.ui.xmlview("Info", "ui5bp.view.Info"));
         this.app.addDetailPage(sap.ui.jsview("CoffeeList", "ui5bp.view.CoffeeList"));
+        this.app.addDetailPage(sap.ui.jsview("Regression", "ui5bp.view.Regression"));
         this.app.addDetailPage(sap.ui.jsview("NewFeatures-v122", "ui5bp.view.NewFeatures-v122"));
 
         // navigate to the first page in both master and detail areas.

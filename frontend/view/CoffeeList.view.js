@@ -3,7 +3,7 @@ jQuery.sap.require("ui5bp.app.config");
 sap.ui.jsview("ui5bp.view.CoffeeList", {
 
     getControllerName: function() {
-        return "ui5bp.view.CoffeeList";
+        return "ui5bp.controller.CoffeeList";
     },
 
     createContent: function(oController) {

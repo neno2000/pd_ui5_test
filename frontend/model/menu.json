@@ -2,7 +2,7 @@
     "Menu": [{
         "title": "People Data Test Tool",
         "icon": "sap-icon://wounds-doc",
-        "targetPage": "CoffeeList",
+        "targetPage": "Regression",
         "description": "csv based test tool"
     }, {
         "title": "People Data Migration Tool",

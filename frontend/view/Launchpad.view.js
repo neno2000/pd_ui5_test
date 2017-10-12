@@ -2,7 +2,7 @@
 sap.ui.jsview("ui5bp.view.Launchpad", {
 
     getControllerName: function() {
-        return "ui5bp.view.Launchpad";
+        return "ui5bp.controller.Launchpad";
     },
 
     createContent: function(oController) {

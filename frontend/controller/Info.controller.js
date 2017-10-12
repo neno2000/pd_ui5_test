@@ -1,6 +1,4 @@
-jQuery.sap.require("ui5bp.app.config");
-
-sap.ui.controller("ui5bp.view.Info", {
+sap.ui.controller("ui5bp.controller.Info", {
 
     onInit: function() {
         this.bus = sap.ui.getCore().getEventBus();
@@ -12,5 +10,5 @@ sap.ui.controller("ui5bp.view.Info", {
 
     doNavBack: function(event) {
         this.bus.publish("nav", "back");
-    } 
+    }
 });

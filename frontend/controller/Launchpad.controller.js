@@ -1,5 +1,5 @@
-sap.ui.controller("ui5bp.view.Launchpad", {
-	
+sap.ui.controller("ui5bp.controller.Launchpad", {
+
     onInit: function() {
         this.bus = sap.ui.getCore().getEventBus();
     },
@@ -8,6 +8,6 @@ sap.ui.controller("ui5bp.view.Launchpad", {
 		this.bus.publish("nav", "to", {
 			id : event
 		});
-	}	
+	}
 
 });

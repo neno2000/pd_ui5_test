@@ -19,5 +19,5 @@ app.on('ready', function() {
   });
 
   mainWindow.loadURL('file://' + __dirname + '/frontend/index.html');
-//  mainWindow.openDevTools();
+  mainWindow.openDevTools();
 });

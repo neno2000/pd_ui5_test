@@ -1,7 +1,7 @@
 sap.ui.jsview("ui5bp.view.Menu", {
 
     getControllerName: function() {
-        return "ui5bp.view.Menu";
+        return "ui5bp.controller.Menu";
     },
 
     createContent: function(oController) {
