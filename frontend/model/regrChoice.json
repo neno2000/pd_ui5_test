@@ -1,0 +1,11 @@
+{
+    "Mode": [{
+        "code": "001",
+        "name": "Filebased",
+        "description": "Use a csv file as a base for the test"
+    }, {
+        "code": "002",
+        "name": "Preconfigured",
+        "description": "Use a preconfigured test case"
+    }]
+}

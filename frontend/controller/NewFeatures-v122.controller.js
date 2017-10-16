@@ -1,4 +1,4 @@
-sap.ui.controller("ui5bp.view.NewFeatures-v122", {
+sap.ui.controller("ui5bp.controller.NewFeatures-v122", {
 
 /**
 * Called when a controller is instantiated and its View controls (if available) are already created.
@@ -16,7 +16,7 @@ sap.ui.controller("ui5bp.view.NewFeatures-v122", {
 		var model = new sap.ui.model.json.JSONModel(input);
 		sap.ui.getCore().setModel(model, "input");
 		this.getView().setModel(model, "input");
-		
+
 		//this.getView().setModel(new sap.ui.model.json.JSONModel(input), "input");
 		this.getView().setModel(new sap.ui.model.json.JSONModel("model/coffee.json"), "coffee");
         this.bus = sap.ui.getCore().getEventBus();
@@ -24,7 +24,7 @@ sap.ui.controller("ui5bp.view.NewFeatures-v122", {
 
     doNavBack: function(event) {
         this.bus.publish("nav", "back");
-    }  	
+    }
 /**
 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
 * (NOT before the first rendering! onInit() is used for that one!).
