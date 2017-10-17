@@ -12,3 +12,7 @@ function(inFilePath) checkAndConvert {
       console.log('end')
     })
 }
+
+funtion() aloha{
+  alert("aloha");
+}

@@ -1,3 +1,4 @@
+//jQuery.sap.require("backend.Utils");
 sap.ui.controller("ui5bp.controller.Regression", {
 
   /**
@@ -7,6 +8,7 @@ sap.ui.controller("ui5bp.controller.Regression", {
    */
   onInit: function() {
     jQuery.sap.require("sap.ui.model.json.JSONModel");
+    this.reader = new FileReader();
     /*
     var input = {
     		date1   : new Date(),
@@ -30,6 +32,21 @@ sap.ui.controller("ui5bp.controller.Regression", {
   onChange: function(event) {
     console.log("The event got fired");
   },
+  onSubmit: function() {
+    alert("Hello World!");
+    aloha();
+  },
+
+  onFileUpload: function(event){
+
+    //  this.reader.readAsText(oCsvFile.oFileUpload.files[0])
+     console.log(event);
+    // var fLoad = this.getView().byId(1001);
+    // console.log(fLoad);
+
+  }
+
+
   /**
    * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
    * (NOT before the first rendering! onInit() is used for that one!).

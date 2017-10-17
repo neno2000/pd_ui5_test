@@ -110,18 +110,7 @@ sap.ui.jsview("ui5bp.view.Regression", {
       visible: false,
       uploadOnChange: true,
       fileType: ["csv", "CSV"],
-      uploadComplete: function(oEv) {
-
-        var reader = new FileReader();
-        console.log(reader);
-        reader.onload(oEv){
-          var strCSV = e.target.result;
-        //  var arrCSV = strCSV.match(/[\w .]+(?=,?)/g);
-          var noOfCols = 5;
-        };
-
-      }
-
+      uploadComplete : [oController.onFileUpload, oController],
     });
 
     oForm2.addContent(oFileLabel);
@@ -132,9 +121,8 @@ sap.ui.jsview("ui5bp.view.Regression", {
       //    visible: ui5bp.app.config.LaunchpadMode,
       text: "Check and Execute",
       tooltip: "Back to Start",
-      press: function(ev) {
-        alert("Here the code");
-      }
+      press:  [oController.onSubmit, oController]
+
     });
 
 
