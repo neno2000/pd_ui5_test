@@ -1,5 +1,5 @@
 jQuery.sap.require("ui5bp.model.Utils");
-sap.ui.controller("ui5bp.controller.Regression", {
+sap.ui.controller("ui5bp.controller.Mocked", {
 
   /**
    * Called when a controller is instantiated and its View controls (if available) are already created.
@@ -8,7 +8,7 @@ sap.ui.controller("ui5bp.controller.Regression", {
    */
   onInit: function() {
     jQuery.sap.require("sap.ui.model.json.JSONModel");
-    this.getView().setModel(new sap.ui.model.json.JSONModel("model/testCases.json"), "testCases");
+    this.getView().setModel(new sap.ui.model.json.JSONModel("model/mocked.json"), "mocked");
     this.getView().setModel(new sap.ui.model.json.JSONModel("model/regrChoice.json"), "mode");
     this.getView().setModel(new sap.ui.model.json.JSONModel("model/countries.json"), "countries");
     this.bus = sap.ui.getCore().getEventBus();
@@ -46,10 +46,10 @@ sap.ui.controller("ui5bp.controller.Regression", {
   },
   onSelectionChange: function(event) {
 
-    var oPassword = sap.ui.getCore().byId("pass_01");
-    var oUserName = sap.ui.getCore().byId("user_01");
-    var oCompanyId = sap.ui.getCore().byId("company_01");
-    var oUrl = sap.ui.getCore().byId("url_01");
+    var oPassword = sap.ui.getCore().byId("mpass_01");
+    var oUserName = sap.ui.getCore().byId("muser_01");
+    var oCompanyId = sap.ui.getCore().byId("mcompany_01");
+    var oUrl = sap.ui.getCore().byId("murl_01");
     var modeToggle = true;
     if (oPassword.getValue() === "") {
       modeToggle = false;
@@ -84,14 +84,14 @@ sap.ui.controller("ui5bp.controller.Regression", {
         {
           this._toggleMode(event);
         }else{
-          var oComboBox = sap.ui.getCore().byId("testMode01");
-          var oFileLabel = sap.ui.getCore().byId("filela_01");
-          var oCsvFile = sap.ui.getCore().byId("csvfile_01");
-          var oMCountries = sap.ui.getCore().byId("omcountries_01");
-          var oMCountriesLabel = sap.ui.getCore().byId("omcountriesL_01");
-          var oExecButton = sap.ui.getCore().byId("exebutton_01");
-          var oExecButtonLabel = sap.ui.getCore().byId("exebuttonL_01");
-          var oIconConfiguration = sap.ui.getCore().byId("iconconf_01");
+          var oComboBox = sap.ui.getCore().byId("mtestMode01");
+          var oFileLabel = sap.ui.getCore().byId("mfilela_01");
+          var oCsvFile = sap.ui.getCore().byId("mcsvfile_01");
+          var oMCountries = sap.ui.getCore().byId("momcountries_01");
+          var oMCountriesLabel = sap.ui.getCore().byId("momcountriesL_01");
+          var oExecButton = sap.ui.getCore().byId("mexebutton_01");
+          var oExecButtonLabel = sap.ui.getCore().byId("mexebuttonL_01");
+          var oIconConfiguration = sap.ui.getCore().byId("miconconf_01");
 
           oFileLabel.setVisible(false);
           oCsvFile.setVisible(false);
@@ -101,23 +101,29 @@ sap.ui.controller("ui5bp.controller.Regression", {
           // oExecButton.setText("Check & Execute");
           oExecButton.setVisible(false);
           oExecButtonLabel.setVisible(false);
-
         }
-
     };
 
   },
-
+  onTabSelect: function(event){
+    console.log(event);
+  },
+  onTestRun: function(event){
+    var oTab = sap.ui.getCore().byId("mockTable01");
+    console.log(oTab.getItems());
+    var oListIt = sap.ui.getCore().byId("mColItems");
+    console.log(oListIt.getCells());
+  },
   _toggleMode: function(event) {
     //get the object one by one
-    var oComboBox = sap.ui.getCore().byId("testMode01");
-    var oFileLabel = sap.ui.getCore().byId("filela_01");
-    var oCsvFile = sap.ui.getCore().byId("csvfile_01");
-    var oMCountries = sap.ui.getCore().byId("omcountries_01");
-    var oMCountriesLabel = sap.ui.getCore().byId("omcountriesL_01");
-    var oExecButton = sap.ui.getCore().byId("exebutton_01");
-    var oExecButtonLabel = sap.ui.getCore().byId("exebuttonL_01");
-    var oIconConfiguration = sap.ui.getCore().byId("iconconf_01");
+    var oComboBox = sap.ui.getCore().byId("mtestMode01");
+    var oFileLabel = sap.ui.getCore().byId("mfilela_01");
+    var oCsvFile = sap.ui.getCore().byId("mcsvfile_01");
+    var oMCountries = sap.ui.getCore().byId("momcountries_01");
+    var oMCountriesLabel = sap.ui.getCore().byId("momcountriesL_01");
+    var oExecButton = sap.ui.getCore().byId("mexebutton_01");
+    var oExecButtonLabel = sap.ui.getCore().byId("mexebuttonL_01");
+    var oIconConfiguration = sap.ui.getCore().byId("miconconf_01");
     //Toggle
     if (oComboBox.getSelectedKey() == "Filebased") {
       oFileLabel.setVisible(true);
@@ -128,7 +134,7 @@ sap.ui.controller("ui5bp.controller.Regression", {
       oExecButton.setText("Check & Execute");
       oExecButton.setVisible(true);
       oExecButtonLabel.setVisible(true);
-    } else if (oComboBox.getSelectedKey() == "Preconfigured") {
+    } else if (oComboBox.getSe lectedKey() == "Preconfigured") {
       oFileLabel.setVisible(false);
       oCsvFile.setVisible(false);
       oIconConfiguration.setVisible(true);

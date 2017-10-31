@@ -2,11 +2,11 @@ jQuery.sap.require("sap.ui.layout.form.SimpleForm");
 jQuery.sap.require("sap.ui.unified.FileUploader");
 $.sap.require("sap.ui.table.Table");
 
-sap.ui.jsview("ui5bp.view.Regression", {
+sap.ui.jsview("ui5bp.view.Mocked", {
 
 
   getControllerName: function() {
-    return "ui5bp.controller.Regression";
+    return "ui5bp.controller.Mocked";
   },
 
 
@@ -28,7 +28,7 @@ sap.ui.jsview("ui5bp.view.Regression", {
       columnsM: 1
     });
 
-    var oComboBox = new sap.m.ComboBox("testMode01", {
+    var oComboBox = new sap.m.ComboBox("mtestMode01", {
 
       placeholder: "Csv FileBased or Preconfigured Regression?",
       items: {
@@ -48,7 +48,7 @@ sap.ui.jsview("ui5bp.view.Regression", {
       text: "Regression Mode:",
       labelFor: oComboBox
     });
-    var oPassword = new sap.m.Input("pass_01", {
+    var oPassword = new sap.m.Input("mpass_01", {
       type: sap.m.InputType.Password,
       placeholder: "Password",
       required: true,
@@ -61,7 +61,7 @@ sap.ui.jsview("ui5bp.view.Regression", {
       }
 
     });
-    var oUserName = new sap.m.Input("user_01", {
+    var oUserName = new sap.m.Input("muser_01", {
       placeholder: "UserName",
       required: true,
       change: function() {
@@ -77,7 +77,7 @@ sap.ui.jsview("ui5bp.view.Regression", {
       labelFor: oUserName,
       oPassword
     });
-    var oCompanyId = new sap.m.Input("company_01", {
+    var oCompanyId = new sap.m.Input("mcompany_01", {
       placeholder: "Company Id",
       required: true,
       change: function() {
@@ -88,7 +88,7 @@ sap.ui.jsview("ui5bp.view.Regression", {
         }
       }
     });
-    var oUrl = new sap.m.Input("url_01", {
+    var oUrl = new sap.m.Input("murl_01", {
       placeholder: "SuccessFactors Url Address",
       required: true,
       change: function() {
@@ -116,13 +116,13 @@ sap.ui.jsview("ui5bp.view.Regression", {
     oForm2.addContent(oComboBox);
 
     // file upllad
-    var oFileLabel = new sap.m.Label("filela_01", {
+    var oFileLabel = new sap.m.Label("mfilela_01", {
       text: "File to Upload:",
       visible: false,
       labelFor: oComboBox
     });
 
-    var oCsvFile = new sap.ui.unified.FileUploader("csvfile_01", {
+    var oCsvFile = new sap.ui.unified.FileUploader("mcsvfile_01", {
       visible: false,
       //    uploadOnChange: true,
       fileType: ["csv", "CSV"],
@@ -130,7 +130,7 @@ sap.ui.jsview("ui5bp.view.Regression", {
       //      uploadComplete : [oController.onFileUpload, oController]
       change: [oController.onChangeUP, oController]
     });
-    var oMCountries = new sap.m.MultiComboBox("omcountries_01", {
+    var oMCountries = new sap.m.MultiComboBox("momcountries_01", {
       visible: false,
       items: {
         path: "countries>/countries",
@@ -140,7 +140,7 @@ sap.ui.jsview("ui5bp.view.Regression", {
         })
       }
     });
-    var oMCountriesLabel = new sap.m.Label("omcountriesL_01", {
+    var oMCountriesLabel = new sap.m.Label("momcountriesL_01", {
       visible: false,
       text: "Test in countries",
       labelFor: oMCountries
@@ -151,7 +151,7 @@ sap.ui.jsview("ui5bp.view.Regression", {
     oForm2.addContent(oFileLabel);
     oForm2.addContent(oCsvFile);
 
-    var oExecButton = new sap.m.Button("exebutton_01", {
+    var oExecButton = new sap.m.Button("mexebutton_01", {
       //    icon: "sap-icon://home",
       //    visible: ui5bp.app.config.LaunchpadMode,
       visible: false,
@@ -160,7 +160,7 @@ sap.ui.jsview("ui5bp.view.Regression", {
       press: [oController.onSubmit, oController]
 
     });
-    var oExecButtonLabel = new sap.m.Label("exebuttonL_01", {
+    var oExecButtonLabel = new sap.m.Label("mexebuttonL_01", {
       visible: false,
       text: "Test Run",
       labelFor: oExecButton
@@ -198,37 +198,49 @@ sap.ui.jsview("ui5bp.view.Regression", {
 
 
     // instantiate the table
-    var oTableConf = new sap.m.Table({
+    var oTableConf = new sap.m.Table("mockTable01", {
       mode: sap.m.ListMode.MultiSelect,
       includeItemInSelection: true,
-      columns : col1,
+      columns : col1
+  //    selectionChange: [oController.onLinesSelect, oController]
 
     });
-    var colItems = new sap.m.ColumnListItem({
+    var colItems = new sap.m.ColumnListItem("mColItems", {
       vAlign: "Middle",
       type: "{type}",
       cells: [
         new sap.m.Text({
-          text: "{Mocked>testId}",
+          text: "{mocked>testId}",
           wrapping: false
         }),
         new sap.m.Text({
-          text: "{Mocked>scenario}",
+          text: "{mocked>scenario}",
           wrapping: false
         })
-      ]
+      ],
+      itemPress: function(event){
+        console.log("another event");
+        console.log(event.getParameters(listItem));
+      }
     });
-    oTableConf.setHeaderToolbar(new sap.m.Toolbar("oTable001", {
+    oTableConf.setHeaderToolbar(new sap.m.Toolbar({
       content: [
-        new sap.m.Label({
-          text: "Test configuration"
+        new sap.m.Label( {
+          text: "People Data Smoked Test"
         }),
         new sap.m.ToolbarSpacer({}),
-        new sap.m.Button("idPersonalizationButton", {
-      //    icon: "sap-icon://person-placeholder",
-          text: "run test"
+        new sap.m.Button("midPersonalizationButton", {
+          icon: "sap-icon://activities",
+          tooltip: "run the test",
+          text: "run test",
+          press: [oController.onTestRun, oController]
+
         })
-      ]
+      ],
+      onSelectionChange: function(event) {
+       alert(event.getSource().getSelectedItem().getBindingContext().getObject().Name);
+             console.log(JSON.stringify(event.getSource().getSelectedItem().getBindingContext().getObject()));
+      }
     }));
     oTableConf.bindItems({
       path: "mocked>/Mocked",
@@ -239,7 +251,7 @@ sap.ui.jsview("ui5bp.view.Regression", {
     oForm1.addContent(oTableConf);
 
 
-    var oIconConfiguration = new sap.m.IconTabBar("iconconf_01", {
+    var oIconConfiguration = new sap.m.IconTabBar("miconconf_01", {
       items: [
         new sap.m.IconTabFilter({
           text: "Preconfiguration",
@@ -277,7 +289,7 @@ sap.ui.jsview("ui5bp.view.Regression", {
     });
 
     return new sap.m.Page({
-      title: "Regression Test Selections",
+      title: "Mocked Test Selections",
       showNavButton: "{device>/isPhone}",
       navButtonPress: [oController.doNavBack, oController],
       content: [oIconSelection, oIconConfiguration],

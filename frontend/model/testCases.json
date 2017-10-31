@@ -1,0 +1,42 @@
+{
+  "Regression": [{
+      "testId": "1001",
+      "scenario": "New hire as an employee in Future"
+    }, {
+      "testId": "1002",
+      "scenario": "New hire employee in Past"
+    }, {
+      "testId": "1003",
+      "scenario": "Change personal information (employee name & address change etc) in the past as manager"
+    }, {
+      "testId": "1004",
+      "scenario": "Change personal information (employee name etc) in the future as manager"
+    }, {
+      "testId": "1005",
+      "scenario": "Transfer within country in the past"
+    }, {
+      "testId": "1006",
+      "scenario": "Transfer within country in the future"
+    }, {
+      "testId": "1007",
+      "scenario": "Termination in the past"
+    }, {
+      "testId": "1008",
+      "scenario": "Termination in the future"
+    }, {
+      "testId": "1009",
+      "scenario": "Rehire in the past as manager"
+    }, {
+      "testId": "1010",
+      "scenario": "Leave of absence in future by HR"
+    }, {
+      "testId": "1011",
+      "scenario": "Update Job information (contract hours) and salary"
+    }, {
+      "testId": "1012",
+      "scenario": "Add concurrent employment in past"
+    }, {
+      "testId": "1013",
+      "scenario": "Add global assignment in future"
+    }]
+}

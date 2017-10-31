@@ -1,13 +1,13 @@
 {
     "Menu": [{
-        "title": "People Data Test Tool",
+        "title": "Mocked Test",
+        "icon": "sap-icon://wounds-doc",
+        "targetPage": "Mocked",
+        "description": "People Data Mocked Test"
+    },{
+        "title": "Regression Test",
         "icon": "sap-icon://wounds-doc",
         "targetPage": "Regression",
-        "description": "csv based test tool"
-    }, {
-        "title": "People Data Migration Tool",
-        "icon": "sap-icon://personnel-view",
-        "targetPage": "NewFeatures-v122",
-        "description": "csv based migration tool"
+        "description": "People Data Regression Test"
     }]
 }

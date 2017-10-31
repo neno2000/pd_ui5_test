@@ -1,0 +1,15 @@
+{
+  "Mocked": [{
+      "testId": "1001",
+      "scenario": "New hire as an employee in Future"
+    }, {
+      "testId": "1002",
+      "scenario": "New hire employee in Past"
+    }, {
+      "testId": "1005",
+      "scenario": "Transfer within country in the past"
+    }, {
+      "testId": "1006",
+      "scenario": "Transfer within country in the future"
+    }]
+}
