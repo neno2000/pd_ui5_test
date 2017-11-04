@@ -1,5 +1,6 @@
 jQuery.sap.require("sap.ui.layout.form.SimpleForm");
 jQuery.sap.require("sap.ui.unified.FileUploader");
+//jQuery.sap.require("sap.m.MessageBox");
 $.sap.require("sap.ui.table.Table");
 
 sap.ui.jsview("ui5bp.view.Mocked", {
@@ -51,7 +52,7 @@ sap.ui.jsview("ui5bp.view.Mocked", {
     var oPassword = new sap.m.Input("mpass_01", {
       type: sap.m.InputType.Password,
       placeholder: "Password",
-      required: true,
+//      required: true, // activate later
       change: function() {
         if (this.getValue() === "") {
           this.setValueState(sap.ui.core.ValueState.Error);
@@ -63,7 +64,7 @@ sap.ui.jsview("ui5bp.view.Mocked", {
     });
     var oUserName = new sap.m.Input("muser_01", {
       placeholder: "UserName",
-      required: true,
+//      required: true, // activate later
       change: function() {
         if (this.getValue() === "") {
           this.setValueState(sap.ui.core.ValueState.Error);
@@ -79,7 +80,7 @@ sap.ui.jsview("ui5bp.view.Mocked", {
     });
     var oCompanyId = new sap.m.Input("mcompany_01", {
       placeholder: "Company Id",
-      required: true,
+  //    required: true, // activate later
       change: function() {
         if (this.getValue() === "") {
           this.setValueState(sap.ui.core.ValueState.Error);
@@ -90,7 +91,7 @@ sap.ui.jsview("ui5bp.view.Mocked", {
     });
     var oUrl = new sap.m.Input("murl_01", {
       placeholder: "SuccessFactors Url Address",
-      required: true,
+//      required: true, // activate later
       change: function() {
         if (this.getValue() === "") {
           this.setValueState(sap.ui.core.ValueState.Error);
@@ -132,24 +133,29 @@ sap.ui.jsview("ui5bp.view.Mocked", {
     });
     var oMCountries = new sap.m.MultiComboBox("momcountries_01", {
       visible: false,
+
       items: {
         path: "countries>/countries",
         template: new sap.ui.core.Item({
-          key: "{countries>name}",
+          key: "{countries>code}",
           text: "{countries>name}"
         })
-      }
+      },
+      selectionFinish: [oController.oCountSelected, oController]
     });
     var oMCountriesLabel = new sap.m.Label("momcountriesL_01", {
       visible: false,
       text: "Test in countries",
       labelFor: oMCountries
     });
+    var busyDialog = (busyDialog) ? busyDialog : new sap.m.BusyDialog('mrun',{text:'Fetching JSON Data', title: 'Loading'});
 
     oForm2.addContent(oMCountriesLabel);
     oForm2.addContent(oMCountries);
     oForm2.addContent(oFileLabel);
     oForm2.addContent(oCsvFile);
+    oForm2.addContent(busyDialog);
+
 
     var oExecButton = new sap.m.Button("mexebutton_01", {
       //    icon: "sap-icon://home",
@@ -201,8 +207,8 @@ sap.ui.jsview("ui5bp.view.Mocked", {
     var oTableConf = new sap.m.Table("mockTable01", {
       mode: sap.m.ListMode.MultiSelect,
       includeItemInSelection: true,
-      columns : col1
-  //    selectionChange: [oController.onLinesSelect, oController]
+      columns : col1,
+      selectionChange: [oController.onLinesSelect, oController]
 
     });
     var colItems = new sap.m.ColumnListItem("mColItems", {

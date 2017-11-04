@@ -1,5 +1,5 @@
 {
   "countries":  [
-  {"name":" France", "code":" FR"},
-  {"name":" United Kingdom", "code":" GB"}]
+  {"name":"France", "code": "FR"},
+  {"name":"United Kingdom", "code":"GB"}]
 }
