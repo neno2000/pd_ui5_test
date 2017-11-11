@@ -14,7 +14,10 @@
     "electron-packager": "^9.1.0",
     "electron-prebuilt": "^1.4.13",
     "gulp": "^3.9.1",
-    "gulp-replace": "^0.6.1"
+    "gulp-asar": "^1.0.0",
+    "gulp-clean": "^0.3.2",
+    "gulp-replace": "^0.6.1",
+    "gulp-run": "^1.7.1"
   },
   "dependencies": {
     "csvtojson": "^1.1.9"

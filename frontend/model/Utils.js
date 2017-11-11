@@ -29,14 +29,26 @@ sap.ui.define(['sap/ui/core/UIComponent'
   //        "postman-token": "4ee2a6d1-8629-2c1e-9a69-98ce91deb501"
         }
       }
-
+      var busyDialog = (busyDialog) ? busyDialog : new sap.m.BusyDialog({text:'Checking Credentials', title: 'Loading'});
+      busyDialog.open()
       $.ajax(settings).done(function(response, xhr) {
         that.toggle = true;
       }).fail(function(response,  xhr){
-        alert(xhr + " check credentials or endpoint parameters")
+      //  alert(xhr + " check credentials or endpoint parameters")
+        sap.m.MessageBox.show(
+          "Verify the Credentials or SF Url", {
+            icon: sap.m.MessageBox.Icon.ERROR,
+            title: "Wrong Credentials",
+            actions: [sap.m.MessageBox.Action.CLOSE],
+            onClose: function(oAction) {
+              / * do something * /
+            }
+          }
+        );
         that.toggle = false;
       });
       this.toggle = that.toggle;
+      busyDialog.close()
     }
   });
 });
