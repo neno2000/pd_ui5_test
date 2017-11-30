@@ -65,7 +65,7 @@ sap.ui.jsview("ui5bp.view.App", {
         this.app.addDetailPage(sap.ui.jsview("CoffeeList", "ui5bp.view.CoffeeList"));
         this.app.addDetailPage(sap.ui.jsview("Regression", "ui5bp.view.Regression"));
         this.app.addDetailPage(sap.ui.jsview("Mocked", "ui5bp.view.Mocked"));
-        this.app.addDetailPage(sap.ui.jsview("NewFeatures-v122", "ui5bp.view.NewFeatures-v122"));
+    //    this.app.addDetailPage(sap.ui.jsview("NewFeatures-v122", "ui5bp.view.NewFeatures-v122"));
 
         // navigate to the first page in both master and detail areas.
         // the toMaster must be called after calling the toDetail, because both of them point to the same reference in phone and

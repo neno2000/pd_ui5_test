@@ -146,6 +146,15 @@ sap.ui.controller("ui5bp.controller.Mocked", {
     that.ping(pass, user, company, url);
 
   },
+  _1001(inCountry){
+    var aPassword = sap.ui.getCore().byId("mpass_01").getValue();
+    var aUserName = sap.ui.getCore().byId("muser_01").getValue();
+    var aCompanyId = sap.ui.getCore().byId("mcompany_01").getValue();
+    var aUrl = sap.ui.getCore().byId("murl_01").getValue();
+    var oPrefix = "Mocked_";
+    that.T1001(aUrl, aPassword, aUserName, aCompanyId, inCountry, oPrefix);
+  },
+
   onTestRun(event) {
     // check if test execution countries were selected.
 
@@ -153,25 +162,55 @@ sap.ui.controller("ui5bp.controller.Mocked", {
   //    var busyDialog4 = (busyDialog4) ? busyDialog4 : new sap.m.BusyDialog('busy4',{text:'Fetching JSON Data', title: 'Loading'});
       var busyDialog4 = sap.ui.getCore().byId("mrun");
         busyDialog4.setText("Running the test in SuccessFactors");
-				busyDialog4.open()
-				jQuery.ajax({
-					url: "http://itunes.apple.com/search?term=yelp&country=us&entity=software",
-					dataType: 'jsonp',
-					async:false,
-					type: 'GET',
-					success:function(jsonData) {
-						console.log(jsonData)
-						busyDialog4.close()
-						},
-					error:function(jqXHR, exception) {
-						console.log(textStatus)
-						busyDialog4.close()
-					}
-				})
+	//			busyDialog4.open()
+  // find the the selected test scenarios
+        for (j = 0; j < this.selected_countries.length; j++) {
+          for (i = 0; i < this.selected_test.length; i++) {
+          //  console.log(i);
+            tmpInt = parseInt( this.selected_test[i], 10);
+            console.log(this.selected_countries[j] + "  " + this.getView().getModel("mocked").oData.Mocked[tmpInt].testId);
+            if(this.selected_countries[j] === "FR"){
+                  // run the testcases
+                switch (this.getView().getModel("mocked").oData.Mocked[tmpInt].testId){
+                  case "1001":         //New hire in the future
+                     this._1001("FR");
+                  console.log("OK1");
+                  break;
+                  case "1002":         //New hire employee past
+                  console.log("OK2");
+                  break;
+                  case "1005":
+                  console.log("OK3");  //transfer within country in the past
+                  break;
+                  case "1006":
+                  console.log("OK4");  //transfer within country in the future
+                  break;
+                }
+            }
+            else if (this.selected_countries[j] === "GB"){
+              switch (this.getView().getModel("mocked").oData.Mocked[tmpInt].testId){
 
-      // loop in the countries
-      // Loop in the testcases.
-      // run the testcases
+                case "1001":           //New hire in the future
+                console.log("OK1");
+                break;
+                case "1002":           //New hire employee past
+                console.log("OK2");
+                break;
+                case "1005":          //transfer within country in the past
+                console.log("OK3");
+                break;
+                case "1006":          //transfer within country in the future
+                console.log("OK4");
+                break;
+              }
+            }
+            else{
+
+            }
+          }
+        }
+
+
       // activate a dialog window with information about the test.
 
     } else {
@@ -185,13 +224,6 @@ sap.ui.controller("ui5bp.controller.Mocked", {
           }
         }
       );
-    }
-
-    // find the the selected test scenarios
-
-    for (i = 0; i < this.selected_test.length; i++) {
-      tmpInt = parseInt(this.selected_test[i], 10);
-      console.log(this.getView().getModel("mocked").oData.Mocked[tmpInt].testId);
     }
   },
   onLinesSelect(event) {
@@ -216,34 +248,13 @@ sap.ui.controller("ui5bp.controller.Mocked", {
     }
 
 
-    var oTmpList = [];
-    oTmpList = this.selected_test;
-    //     this.selected_test = [];
-    for (i = 0; i <= oTmpList.length; i++) {
-      //     var  inTmpIt;
-      //   inTmpIt = int(oTmpList[1])
-
-      //   console.log(event.getParameters().listItems[inTmpIt].oBindingContexts.mocked.oModel);
-      console.log(oTmpList[i]);
-    };
-
-    console.log(this.selected_test);
-
-
-
-
-
-    // 1. check the quantity of items chosen by checking the listItems and the selected flag.
-
   },
   oCountSelected(event) {
 
     this.selected_countries = event.getSource().mProperties.selectedKeys;
     console.log(this.selected_countries);
   },
-  runTest() {
 
-  },
   wait(msec) {
 
     var start = new Date().getTime();

@@ -11,8 +11,8 @@ app.on('window-all-closed', function() {
 
 app.on('ready', function() {
   mainWindow = new BrowserWindow({
-    height: 600,
-    width: 800,
+    height: 1200,
+    width: 2000,
     webPreferences: {
       nodeIntegration: false
     }
